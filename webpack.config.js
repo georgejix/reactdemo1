@@ -21,7 +21,11 @@ module.exports = {
                 test: /\.js|jsx$/,
                 use: 'babel-loader',
                 exclude: /node_modules/
-            }
+            }, {
+                test: /\.css$/,
+                //css-loader之后加?modules表示为普通的css样式表，启用模块化
+                use: ['style-loader', 'css-loader?modules']
+            }//打包处理css样式表的第三方loader,从右往左，先css-loader处理，然后将处理结果交给style-loader
         ]
     },
     resolve: {
