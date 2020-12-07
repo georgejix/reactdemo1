@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import CmtItem2 from '@/components/CmtItem2'
 
-import objcss from '@/css/cmtlist.css'
+//直接写包名开始，默认先去node_modules目录下寻找
+import 'bootstrap/dist/css/bootstrap.css'
+
+import objcss from '@/css/cmtlist.scss'
 console.log(objcss);
 
 class CmtList2 extends Component {
@@ -22,6 +25,7 @@ class CmtList2 extends Component {
         return <div>
             <h1 id={objcss.cmtTitle}>评论列表</h1>
             {this.state.CommenList.map(item => <CmtItem2 item={item} key={item.id} />)}
+            <button className="btn btn-primary">按钮</button>
         </div>
     }
 }

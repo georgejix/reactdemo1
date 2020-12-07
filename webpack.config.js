@@ -24,8 +24,16 @@ module.exports = {
             }, {
                 test: /\.css$/,
                 //css-loader之后加?modules表示为普通的css样式表，启用模块化
-                use: ['style-loader', 'css-loader?modules']
-            }//打包处理css样式表的第三方loader,从右往左，先css-loader处理，然后将处理结果交给style-loader
+                use: ['style-loader', 'css-loader']
+            },//打包处理css样式表的第三方loader,从右往左，先css-loader处理，然后将处理结果交给style-loader
+            {
+                test: /\.ttf|woff|woff2|eot|svg$/,
+                use: 'url-loader'
+            },//打包处理字体文件的loader
+            {
+                test: /\.scss$/,
+                use: ['style-loader', 'css-loader?modules', 'sass-loader']
+            },//打包处理scss文件的loader
         ]
     },
     resolve: {
